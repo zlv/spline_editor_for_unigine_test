@@ -6,6 +6,7 @@
 namespace Ui {
 class MainWindow;
 }
+class PointGraphicsScene;
 
 class MainWindow : public QMainWindow
 {
@@ -19,6 +20,7 @@ private:
 
 private:
     Ui::MainWindow *ui;
+    PointGraphicsScene *scene_;
 };
 
 #endif // MAINWINDOW_H

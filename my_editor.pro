@@ -12,7 +12,13 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 }
 
 # Input
-HEADERS += mainwindow.h
+HEADERS += mainwindow.h \
+    pointgraphicsview.h \
+    pointgraphicsscene.h \
+    pointitem.h
 FORMS += mainwindow.ui
 SOURCES += mainwindow.cpp \
-    main.cpp
+    main.cpp \
+    pointgraphicsview.cpp \
+    pointgraphicsscene.cpp \
+    pointitem.cpp
