@@ -3,11 +3,16 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = 
+TARGET = my_editor
 DEPENDPATH += .
 INCLUDEPATH += .
+
+greaterThan(QT_MAJOR_VERSION, 4) {
+   QT += widgets
+}
 
 # Input
 HEADERS += mainwindow.h
 FORMS += mainwindow.ui
-SOURCES += mainwindow.cpp
+SOURCES += mainwindow.cpp \
+    main.cpp
