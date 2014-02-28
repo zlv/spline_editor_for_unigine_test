@@ -54,7 +54,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox">
+         <widget class="QDoubleSpinBox" name="cont_edit">
           <property name="decimals">
            <number>3</number>
           </property>
@@ -78,7 +78,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+         <widget class="QDoubleSpinBox" name="tens_edit">
           <property name="decimals">
            <number>3</number>
           </property>
@@ -91,6 +91,13 @@
          </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="applyButton">
+        <property name="text">
+         <string>&amp;Apply</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>

@@ -7,6 +7,7 @@ namespace Ui {
 class MainWindow;
 }
 class PointGraphicsScene;
+class PointItem;
 
 class MainWindow : public QMainWindow
 {
@@ -15,12 +16,19 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+public slots:
+    void changeSettings_slot(PointItem*);
+    void apply();
+signals:
+    void proxy_signal(double[]);
+    void setParams(double[]);
 private:
     void createToolbar();
 
 private:
     Ui::MainWindow *ui;
     PointGraphicsScene *scene_;
+    PointItem *lastPointItem_;
 };
 
 #endif // MAINWINDOW_H
