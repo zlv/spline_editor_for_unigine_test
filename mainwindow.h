@@ -20,8 +20,7 @@ public slots:
     void changeSettings_slot(PointItem*);
     void apply();
 signals:
-    void proxy_signal(double[]);
-    void setParams(double[]);
+    void setParams(double,double,double);
 private:
     void createToolbar();
 

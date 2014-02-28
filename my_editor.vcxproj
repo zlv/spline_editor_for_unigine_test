@@ -60,11 +60,15 @@
     <ClCompile Include="mainwindow.cpp" />
     <ClCompile Include="pointgraphicsscene.cpp" />
     <ClCompile Include="pointgraphicsview.cpp" />
+    <ClCompile Include="pointitem.cpp" />
+    <ClCompile Include="splineitem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainwindow.h" />
     <ClInclude Include="pointgraphicsscene.h" />
     <ClInclude Include="pointgraphicsview.h" />
+    <ClInclude Include="pointitem.h" />
+    <ClInclude Include="splineitem.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="mainwindow.ui" />

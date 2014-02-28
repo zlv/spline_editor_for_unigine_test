@@ -8,7 +8,8 @@ PointItem::PointItem(const QPointF& point, int index) :
         param_[i] = 0;
 }
 
-void PointItem::setParams_slot(double par[]) {
-    for (int i=0; i<3; i++)
-        param_[i] = par[i];
+void PointItem::setParams_slot(double bias, double cont, double tens) {
+    param_[0] = bias;
+    param_[1] = cont;
+    param_[2] = tens;
 }

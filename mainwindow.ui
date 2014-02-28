@@ -31,6 +31,9 @@
         </item>
         <item>
          <widget class="QDoubleSpinBox" name="bias_edit">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="decimals">
            <number>3</number>
           </property>
@@ -55,6 +58,9 @@
         </item>
         <item>
          <widget class="QDoubleSpinBox" name="cont_edit">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="decimals">
            <number>3</number>
           </property>
@@ -79,6 +85,9 @@
         </item>
         <item>
          <widget class="QDoubleSpinBox" name="tens_edit">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="decimals">
            <number>3</number>
           </property>
@@ -96,6 +105,13 @@
        <widget class="QPushButton" name="applyButton">
         <property name="text">
          <string>&amp;Apply</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="drawButton">
+        <property name="text">
+         <string>&amp;Draw Spline</string>
         </property>
        </widget>
       </item>

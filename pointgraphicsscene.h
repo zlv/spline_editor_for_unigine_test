@@ -20,7 +20,7 @@ private slots:
     void selectionChanged_slot();
 public slots:
     void change_point_mode(bool);
-    void updateLines(QList<QRectF>);
+    void updateLines();
 
 private:
     bool bAdd_else_select_;

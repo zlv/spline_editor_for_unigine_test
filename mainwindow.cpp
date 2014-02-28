@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->dummy_widget->setLayout(box);
     createToolbar();
     connect(ui->applyButton,SIGNAL(clicked()),this,SLOT(apply()));
+    connect(ui->drawButton,SIGNAL(clicked()),scene_,SLOT(updateLines()));
 }
 
 MainWindow::~MainWindow()
@@ -27,21 +28,20 @@ MainWindow::~MainWindow()
 void MainWindow::changeSettings_slot(PointItem *p)
 {
     if (lastPointItem_)
-        disconnect(lastPointItem_,SLOT(setParams_slot(double[])));
+        disconnect(lastPointItem_,SLOT(setParams_slot(double,double,double)));
+    ui->bias_edit->setEnabled(1);
+    ui->cont_edit->setEnabled(1);
+    ui->tens_edit->setEnabled(1);
     ui->bias_edit->setValue(p->bias());
     ui->cont_edit->setValue(p->continuity());
     ui->tens_edit->setValue(p->tension());
-    connect(this,SIGNAL(setParams(double[])),p,SLOT(setParams_slot(double[])));
+    connect(this,SIGNAL(setParams(double,double,double)),p,SLOT(setParams_slot(double,double,double)));
     lastPointItem_ = p;
 }
 
 void MainWindow::apply()
 {
-    double par[3];
-    par[0] = ui->bias_edit->value();
-    par[1] = ui->cont_edit->value();
-    par[2] = ui->tens_edit->value();
-    setParams(par);
+    setParams(ui->bias_edit->value(),ui->cont_edit->value(),ui->tens_edit->value());
 }
 
 void MainWindow::createToolbar() {

@@ -1,5 +1,6 @@
 #include "pointgraphicsscene.h"
 #include "pointitem.h"
+#include "splineitem.h"
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsEllipseItem>
 
@@ -7,7 +8,7 @@ PointGraphicsScene::PointGraphicsScene(QObject *parent) :
     QGraphicsScene(parent), bAdd_else_select_(0), index_(0)
 {
     setItemIndexMethod(QGraphicsScene::NoIndex);
-    connect(this,SIGNAL(changed(QList<QRectF>)),this,SLOT(updateLines(QList<QRectF>)));
+    //connect(this,SIGNAL(changed(QList<QRectF>)),this,SLOT(updateLines(QList<QRectF>)));
     connect(this,SIGNAL(selectionChanged()),this,SLOT(selectionChanged_slot()));
 }
 
@@ -38,8 +39,21 @@ void PointGraphicsScene::selectionChanged_slot()
 }
 
 /*в зависимости от того, куда перемещены точки, строим сплайн*/
-void PointGraphicsScene::updateLines(QList<QRectF> rect_list) {
-    for (QList<QRectF>::Iterator beg = rect_list.begin(); beg!=rect_list.end(); ++beg) {
-        items(*beg);
+void PointGraphicsScene::updateLines() {
+    QList<QGraphicsItem*> item_list = items();
+    for (QList<QGraphicsItem*>::Iterator beg = item_list.begin(); beg!=item_list.end(); ++beg) {
+            double asdf[6];
+            int index = 0;
+            asdf[index++] = (*beg)->pos().x();
+            asdf[index++] = (*beg)->pos().y();
+            asdf[index++] = (*beg)->scenePos().x();
+            asdf[index++] = (*beg)->scenePos().y();
+        if ((*beg)->type()==SplineItem::Type) {
+            
+            removeItem(*beg);
+            break;
+        }
     }
+    SplineItem *spline = new SplineItem(item_list);
+    addItem(spline);
 }

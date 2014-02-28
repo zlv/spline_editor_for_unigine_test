@@ -20,7 +20,7 @@ public:
 signals:
 
 public slots:
-    void setParams_slot(double[]);
+    void setParams_slot(double,double,double);
 
 private:
     int index_;

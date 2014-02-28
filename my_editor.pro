@@ -15,10 +15,12 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 HEADERS += mainwindow.h \
     pointgraphicsview.h \
     pointgraphicsscene.h \
-    pointitem.h
+    pointitem.h \
+    splineitem.h
 FORMS += mainwindow.ui
 SOURCES += mainwindow.cpp \
     main.cpp \
     pointgraphicsview.cpp \
     pointgraphicsscene.cpp \
-    pointitem.cpp
+    pointitem.cpp \
+    splineitem.cpp
