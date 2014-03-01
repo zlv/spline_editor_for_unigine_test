@@ -7,7 +7,7 @@ class PointItem;
 class Spline
 {
 public:
-    Spline(const QPointF&,const QPointF&,const QPointF&,const PointItem*, const PointItem *nextpoint);
+    Spline(const QPointF&,const QPointF&,const QPointF&,const QPointF&,const PointItem*, const PointItem *nextpoint);
     QList<QPointF> getPoints();
 
 private:

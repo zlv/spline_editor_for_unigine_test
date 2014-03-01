@@ -1,9 +1,9 @@
 #include "spline.h"
 #include "pointitem.h"
 
-Spline::Spline(const QPointF &prev, const QPointF &cur, const QPointF &next, const PointItem *curitem, const PointItem *nextitem) : cur_(cur), next_(next), bSplineBuilded(0) {
+Spline::Spline(const QPointF &prev, const QPointF &cur, const QPointF &next, const QPointF &nextnext, const PointItem *curitem, const PointItem *nextitem) : cur_(cur), next_(next), bSplineBuilded(0) {
     d1_=0.5*(1-curitem->tension())*((1+curitem->bias())*(1-curitem->continuity())*(cur-prev)+ (1-curitem->bias())*(1+curitem->continuity())*(next-cur));
-    d2_=0.5*(1-nextitem->tension())*((1+nextitem->bias())*(1+nextitem->continuity())*(cur-prev)+ (1-nextitem->bias())*(1-nextitem->continuity())*(next-cur));
+    d2_=0.5*(1-nextitem->tension())*((1+nextitem->bias())*(1+nextitem->continuity())*(next-cur)+ (1-nextitem->bias())*(1-nextitem->continuity())*(nextnext-next));
 }
 
 QPointF interpolate(double t, const QPointF& p1, const QPointF& p2, const QPointF& d1, const QPointF& d2) {
