@@ -16,9 +16,9 @@ public:
     double bias() {return param_[0];}
     double continuity() {return param_[1];}
     double tension() {return param_[2];}
-
+protected:
+    QVariant itemChange(GraphicsItemChange change, const QVariant &value);
 signals:
-
 public slots:
     void setParams_slot(double,double,double);
 
