@@ -102,13 +102,6 @@
        </layout>
       </item>
       <item>
-       <widget class="QPushButton" name="applyButton">
-        <property name="text">
-         <string>&amp;Apply</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QPushButton" name="drawButton">
         <property name="text">
          <string>&amp;Draw Spline</string>

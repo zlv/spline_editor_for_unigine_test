@@ -26,6 +26,7 @@ void PointGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *e)
         pointItem->setFlag(QGraphicsItem::ItemIsSelectable,1);
         pointItem->setFlag(QGraphicsItem::ItemSendsGeometryChanges,1);
         addItem(pointItem);
+        removeSpline();
     }
 }
 

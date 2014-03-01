@@ -13,9 +13,9 @@ public:
        // Enable the use of qgraphicsitem_cast with this item.
        return Type;
     }
-    double bias() {return param_[0];}
-    double continuity() {return param_[1];}
-    double tension() {return param_[2];}
+    double bias() const {return param_[0];}
+    double continuity() const {return param_[1];}
+    double tension() const {return param_[2];}
 protected:
     QVariant itemChange(GraphicsItemChange change, const QVariant &value);
 signals:

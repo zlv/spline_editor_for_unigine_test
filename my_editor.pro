@@ -16,11 +16,13 @@ HEADERS += mainwindow.h \
     pointgraphicsview.h \
     pointgraphicsscene.h \
     pointitem.h \
-    splineitem.h
+    splineitem.h \
+    spline.h
 FORMS += mainwindow.ui
 SOURCES += mainwindow.cpp \
     main.cpp \
     pointgraphicsview.cpp \
     pointgraphicsscene.cpp \
     pointitem.cpp \
-    splineitem.cpp
+    splineitem.cpp \
+    spline.cpp

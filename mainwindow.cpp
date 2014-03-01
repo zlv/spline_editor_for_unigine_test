@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     scene_ = static_cast<PointGraphicsScene*>(view->scene());
     ui->dummy_widget->setLayout(box);
     createToolbar();
-    connect(ui->applyButton,SIGNAL(clicked()),this,SLOT(apply()));
+    connect(ui->drawButton,SIGNAL(clicked()),this,SLOT(apply()));
     connect(ui->drawButton,SIGNAL(clicked()),scene_,SLOT(updateLines()));
 }
 

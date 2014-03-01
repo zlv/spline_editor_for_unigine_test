@@ -61,6 +61,7 @@
     <ClCompile Include="pointgraphicsscene.cpp" />
     <ClCompile Include="pointgraphicsview.cpp" />
     <ClCompile Include="pointitem.cpp" />
+    <ClCompile Include="spline.cpp" />
     <ClCompile Include="splineitem.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +69,7 @@
     <ClInclude Include="pointgraphicsscene.h" />
     <ClInclude Include="pointgraphicsview.h" />
     <ClInclude Include="pointitem.h" />
+    <ClInclude Include="spline.h" />
     <ClInclude Include="splineitem.h" />
   </ItemGroup>
   <ItemGroup>
