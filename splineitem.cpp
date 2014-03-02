@@ -19,7 +19,7 @@ SplineItem::SplineItem(const QList<QGraphicsItem*>& item_list, QGraphicsItem *pa
             if ((*beg)->type()==PointItem::Type) {
                 item_list_.push_back(*beg);
                 QRectF boundingRectTemp = (*beg)->boundingRect();
-                boundingRect_ = boundingRect_.unite((*beg)->mapRectToParent(boundingRectTemp));
+                boundingRect_ = boundingRect_.united((*beg)->mapRectToParent(boundingRectTemp));
             }
         }
         find_splines();
