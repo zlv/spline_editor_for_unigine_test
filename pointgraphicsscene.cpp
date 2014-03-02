@@ -1,3 +1,4 @@
+//copyright (c) Evgenii Lezhnin <zlvlezhnin@gmail.com>, 2014
 #include "pointgraphicsscene.h"
 #include "pointitem.h"
 #include "splineitem.h"
@@ -6,27 +7,26 @@
 #include <QKeyEvent>
 
 PointGraphicsScene::PointGraphicsScene(QObject *parent) :
-    QGraphicsScene(parent), bAdd_else_select_(0), index_(0)
+    QGraphicsScene(parent), bAdd_(0)
 {
-    setItemIndexMethod(QGraphicsScene::NoIndex);
-    //connect(this,SIGNAL(changed(QList<QRectF>)),this,SLOT(changed_slot(QList<QRectF>)));
+    setItemIndexMethod(QGraphicsScene::NoIndex); //there is recommendation to disable index for our case
     connect(this,SIGNAL(selectionChanged()),this,SLOT(selectionChanged_slot()));
 }
 
 void PointGraphicsScene::change_point_mode(bool toggled) {
-    bAdd_else_select_ = toggled;
+    bAdd_ = toggled;
 }
 
 /*Добавляем свои точки, содержащие индекс, а также линии (сплайны), содержащие соединяемые индексы*/
 void PointGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *e)
 {
-    if (bAdd_else_select_) {
-        PointItem *pointItem = new PointItem(e->scenePos(),index_++);
+    if (bAdd_) {
+        PointItem *pointItem = new PointItem(e->scenePos());
         pointItem->setFlag(QGraphicsItem::ItemIsMovable,1);
         pointItem->setFlag(QGraphicsItem::ItemIsSelectable,1);
         pointItem->setFlag(QGraphicsItem::ItemSendsGeometryChanges,1);
         addItem(pointItem);
-        removeSpline();
+        removeSpline(); //[it could be harmful to create a new spline]
     }
 }
 
@@ -62,11 +62,6 @@ void PointGraphicsScene::selectionChanged_slot()
     }
 }
 
-void PointGraphicsScene::changed_slot(QList<QRectF>)
-{
-    removeSpline();
-}
-
 /*в зависимости от того, куда перемещены точки, строим сплайн*/
 void PointGraphicsScene::updateLines() {
     QList<QGraphicsItem*> item_list = items();
@@ -76,6 +71,6 @@ void PointGraphicsScene::updateLines() {
             break;
         }
     }
-    SplineItem *spline = new SplineItem(item_list);
+    SplineItem *spline = new SplineItem(item_list); //[there's no need to delete it, cos it'll be added to parent]
     addItem(spline);
 }

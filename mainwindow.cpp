@@ -1,3 +1,4 @@
+//copyright (c) Evgenii Lezhnin <zlvlezhnin@gmail.com>, 2014
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "pointgraphicsview.h"
@@ -27,8 +28,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::changeSettings_slot(PointItem *p)
 {
-    if (lastPointItem_)
+    if (lastPointItem_) {
+        apply();
         disconnect(lastPointItem_,SLOT(setParams_slot(double,double,double)));
+    }
     ui->bias_edit->setEnabled(1);
     ui->cont_edit->setEnabled(1);
     ui->tens_edit->setEnabled(1);
@@ -50,5 +53,4 @@ void MainWindow::createToolbar() {
     pointAct->setCheckable(1);
     QToolBar *toolbar = addToolBar(tr("&Add Control Point"));
     toolbar->addAction(pointAct);
-    //toolbar->show();
 }

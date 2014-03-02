@@ -1,3 +1,7 @@
+/*
+ * do almost nothing
+ * copyright (c) Evgenii Lezhnin <zlvlezhnin@gmail.com>, 2014
+ */
 #ifndef POINTGRAPHICSVIEW_H
 #define POINTGRAPHICSVIEW_H
 

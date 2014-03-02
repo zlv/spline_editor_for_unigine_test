@@ -1,3 +1,4 @@
+//copyright (c) Evgenii Lezhnin <zlvlezhnin@gmail.com>, 2014
 #include "mainwindow.h"
 #include <QApplication>
 

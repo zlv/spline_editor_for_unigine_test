@@ -1,9 +1,9 @@
+//copyright (c) Evgenii Lezhnin <zlvlezhnin@gmail.com>, 2014
 #include "pointitem.h"
 #include "pointgraphicsscene.h"
 #include <QBrush>
 
-PointItem::PointItem(const QPointF& point, int index) :
-    QGraphicsEllipseItem(point.x(),point.y(),8,8), index_(index) {
+PointItem::PointItem(const QPointF& point) : QGraphicsEllipseItem(point.x(),point.y(),8,8) {
     setBrush(Qt::red);
     for (int i=0; i<3; i++)
         param_[i] = 0;

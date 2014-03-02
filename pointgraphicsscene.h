@@ -1,3 +1,7 @@
+/*
+ * Scene redefinition, that adds Points and Splines.
+ * copyright (c) Evgenii Lezhnin <zlvlezhnin@gmail.com>, 2014
+ */
 #ifndef POINTGRAPHICSSCENE_H
 #define POINTGRAPHICSSCENE_H
 
@@ -18,17 +22,15 @@ protected:
     void keyPressEvent(QKeyEvent *keyEvent);
 private:
 signals:
-    void changeSettings(PointItem*);
+    void changeSettings(PointItem*); //emits then sellection changes, this signal is connected to function in Main Window
 private slots:
-    void selectionChanged_slot();
-    void changed_slot(QList<QRectF>);
+    void selectionChanged_slot(); //connected to standart signal of QGraphicsScene
 public slots:
-    void change_point_mode(bool);
-    void updateLines();
+    void change_point_mode(bool); //add or other
+    void updateLines(); //build new spline
 
 private:
-    bool bAdd_else_select_;
-    int index_;
+    bool bAdd_; //add or other
 };
 
 #endif // POINTGRAPHICSSCENE_H
